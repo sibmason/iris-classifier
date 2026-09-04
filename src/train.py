@@ -35,6 +35,9 @@ def train_and_evaluate(test_size=0.2, random_state=42):
 def create_output_dir():
     from pathlib import Path
     project_root = Path(__file__).resolve().parent.parent
+
+    output_dir = project_root / "outputs"  
+    output_dir.mkdir(exist_ok=True)
     new_dir = project_root / "outputs" / "confusion"
     new_dir.mkdir(exist_ok=True)
     return new_dir
