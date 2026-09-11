@@ -38,9 +38,7 @@ def create_output_dir():
 
     output_dir = project_root / "outputs"  
     output_dir.mkdir(exist_ok=True)
-    new_dir = project_root / "outputs" / "confusion"
-    new_dir.mkdir(exist_ok=True)
-    return new_dir
+    return output_dir
 
 
 def plot_ConfusionMatrix(y_test, y_pred, target_names, new_dir):
@@ -49,7 +47,7 @@ def plot_ConfusionMatrix(y_test, y_pred, target_names, new_dir):
     confusion_matrix = metrics.confusion_matrix(y_test, y_pred)
     cmatrix_display = metrics.ConfusionMatrixDisplay(confusion_matrix = confusion_matrix, display_labels = target_names)
     cmatrix_display.plot()
-    plt.savefig(new_dir / "_matrix.png")
+    plt.savefig(new_dir / "confusion_matrix.png")
     plt.close()
 
 
